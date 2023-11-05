@@ -7,6 +7,9 @@ import { HomeComponent } from './_components/home/home.component';
 import { NavComponent } from './_components/nav/nav.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { LoginComponent } from './_components/login/login.component';
+import { UserListComponent } from './_components/user/user-list/user-list.component';
+import { RouterModule } from '@angular/router';
+import { UserCreateComponent } from './_components/user/user-create/user-create.component';
 
 
 @NgModule({
@@ -15,13 +18,16 @@ import { LoginComponent } from './_components/login/login.component';
     HomeComponent,
     NavComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    UserListComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
