@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="container text-center">   
+        <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && login()">
+            <fieldset>
+              <legend>Iniciar sesión</legend>
+              <div class="form-group">
+                <label for="UserAccount" class="form-label mt-4">Usuario</label>
+                <input [formControl]="$any(loginForm.controls['account'])" type="text" class="form-control" id="UserAccount" placeholder="Ingrese usuario">
+              </div>
+              <div class="form-group">
+                <label for="InputPassword" class="form-label mt-4">Contraseña</label>
+                <input [formControl]="$any(loginForm.controls['password'])" type="password" class="form-control" id="InputPassword" placeholder="Ingrese contraseña" autocomplete="off">
+              </div>
+              <button type="submit" class="btn btn-primary">Entrar</button>
+            </fieldset>
+          </form>
+    </div>  
+</div>
