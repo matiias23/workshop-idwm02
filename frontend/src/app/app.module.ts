@@ -10,7 +10,7 @@ import { LoginComponent } from './_components/login/login.component';
 import { UserListComponent } from './_components/user/user-list/user-list.component';
 import { RouterModule } from '@angular/router';
 import { UserCreateComponent } from './_components/user/user-create/user-create.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { UserCreateComponent } from './_components/user/user-create/user-create.
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
