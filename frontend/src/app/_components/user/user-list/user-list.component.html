@@ -1,2 +1,49 @@
-<input class="form-control me-sm-2" type="search" placeholder="Search">
-<p>user-list works!</p>
+
+
+<div class="row justify-content-center">
+    <form class="d-flex">
+        <input id="search-user" class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+    <div class="col-10"> 
+        <table class="table table-hover table-responsive-xxl">
+        <thead>
+        <tr class="table-primary">
+            <th scope="col" class="align-middle" style="width: 10%;">Rut</th>
+            <th scope="col" class="align-middle" style="width: 10%;">Nombre</th>
+            <th scope="col" class="align-middle" style="width: 15%;">Apellido</th>
+            <th scope="col" class="align-middle" style="width: 25%;">Email</th>
+            <th scope="col" class="align-middle" style="width: 10%;">Puntos</th>
+            <th scope="col" class="align-middle text-center" style="width: 15%;">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user['rut'] | titlecase }}</td> 
+            <td>{{ user['name'] | titlecase }}</td>
+            <td>{{ user['lastName'] | titlecase }}</td>
+            <td>{{ user['email'] }}</td>
+            <td>{{ user['points'] }} puntos</td>
+            <td>
+                <div class="d-flex flex-row gap-2 ">
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        routerLink=""
+                    >
+                        Editar
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        routerLink=""
+                    >
+                        Eliminar
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>           
+</div>
