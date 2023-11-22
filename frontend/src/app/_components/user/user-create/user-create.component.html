@@ -1,1 +1,40 @@
-<p>user-create works!</p>
+<div class="row justify-content-center mt-3">
+    <div class="col-4">
+      <form [formGroup]="createForm" (ngSubmit)="createForm.valid && createUser()" autocomplete="off">
+        <h2 class="text-center text-primary">Crear Usuario</h2>
+  
+        <hr>
+
+        <div class="form-group">
+            <label for="rut">Rut:</label>
+            <input formControlName="rut" id="rut" class="form-control" placeholder="Ingrese su rut">
+          </div>
+  
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input formControlName="name" id="name" class="form-control" placeholder="Ingrese su nombre">
+          </div>
+  
+          <div class="form-group">
+            <label for="lastName">Apellido:</label>
+            <input formControlName="lastName" id="lastName" class="form-control" placeholder="Ingrese su apellido">
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Correo electrónico:</label>
+            <input formControlName="email" id="email" type="email" class="form-control" placeholder="Ingrese su correo electrónico">
+          </div>
+  
+          <div class="form-group">
+            <label for="points">Puntos:</label>
+            <input formControlName="points" id="points" class="form-control" placeholder="Ingrese su cantidad de puntos">
+          </div>
+  
+        <div class="text-center">
+          <button [disabled]="!createForm.valid" type="submit" class="btn btn-success">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
