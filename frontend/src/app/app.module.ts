@@ -11,6 +11,7 @@ import { UserListComponent } from './_components/user/user-list/user-list.compon
 import { RouterModule } from '@angular/router';
 import { UserCreateComponent } from './_components/user/user-create/user-create.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserUpdateComponent } from './_components/user/user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     LoginComponent,
     UserListComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,

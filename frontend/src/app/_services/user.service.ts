@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { User } from '../_models/user';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +30,15 @@ export class UserService {
     return this.http.post<User>(`${this.apiUrl}/users`, user);
   }
 
-  updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/users/${user.id}`, user);
+  updateUser(model: any, id: number): Observable<Object> {
+    const body = { ...model, id };
+    return this.http.put(`${this.apiUrl}/users/${id}`, body)
+    .pipe(
+      catchError(error => {
+        console.error('Error en la actualización del usuario:', error);
+        throw error; // Relanzar el error para que lo maneje el código del componente
+      })
+    );
   }
 
   deleteUser(userId: number): Observable<void> {

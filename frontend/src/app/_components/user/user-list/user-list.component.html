@@ -29,14 +29,15 @@
                     <button
                         type="button"
                         class="btn btn-outline-secondary"
-                        routerLink=""
+                        routerLink="/users/{{ user.id }}"
                     >
                         Editar
                     </button>
                     <button
                         type="button"
+                        (click)="deleteUser(user.id)"
                         class="btn btn-outline-secondary"
-                        routerLink=""
+                        
                     >
                         Eliminar
                     </button>
