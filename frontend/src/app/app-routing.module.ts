@@ -7,6 +7,7 @@ import { UserCreateComponent } from './_components/user/user-create/user-create.
 import { UserUpdateComponent } from './_components/user/user-update/user-update.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'home', component:HomeComponent},
   {path: 'login', component:LoginComponent},
   {path: 'users/list', component:UserListComponent},

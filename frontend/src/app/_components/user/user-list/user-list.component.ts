@@ -33,16 +33,20 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(userId: number): void {
-    this.userService.deleteUser(userId).subscribe(
-      () => {
-        console.log('Usuario eliminado con éxito');
-        this.getUsers();
-      },
-      (error) => {
-        console.error('Error al eliminar el usuario', error);
-      }
-    );
-  }
+    const userConfirmed = window.confirm('¿Estás seguro de que deseas eliminar este usuario?');
+  
+    if (userConfirmed) {
+      this.userService.deleteUser(userId).subscribe(
+        () => {
+          console.log('Usuario eliminado con éxito');
+          this.getUsers();
+        },
+        (error) => {
+          console.error('Error al eliminar el usuario', error);
+        }
+      );
+    }
+  }  
 
   filterResults(event: Event) {
     const text = (event.target as HTMLInputElement).value;
