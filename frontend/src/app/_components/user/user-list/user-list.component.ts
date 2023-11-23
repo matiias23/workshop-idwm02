@@ -11,11 +11,14 @@ import { Observable } from 'rxjs';
 })
 export class UserListComponent implements OnInit {
   users: User[];
+  filteredUserList: User[] = [];
 
   constructor(
     private userService: UserService,
     private router: Router) {
       this.users=[];
+
+      this.filteredUserList = this.users;
   }
 
   ngOnInit(): void {
@@ -25,6 +28,7 @@ export class UserListComponent implements OnInit {
   getUsers(): void {
     this.userService.getUsers().subscribe(users => {
       this.users = users;
+      this.filteredUserList = this.users;
     });
   }
 
@@ -37,6 +41,20 @@ export class UserListComponent implements OnInit {
       (error) => {
         console.error('Error al eliminar el usuario', error);
       }
+    );
+  }
+
+  filterResults(event: Event) {
+    const text = (event.target as HTMLInputElement).value;
+    if (!text) {
+      this.filteredUserList = this.users;
+      return;
+    }
+  
+    this.filteredUserList = this.users.filter(
+      user => 
+        user.rut.toLowerCase().includes(text) || 
+        user.email.toLowerCase().includes(text) 
     );
   }
 
