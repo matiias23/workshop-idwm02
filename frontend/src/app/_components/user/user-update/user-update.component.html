@@ -7,27 +7,32 @@
 
         <div class="form-group">
             <label for="rut">Rut:</label>
-            <input formControlName="rut" id="rut" class="form-control" placeholder="Ingrese su rut">
+            <input formControlName="rut" id="rut" class="form-control" placeholder="Ingrese su rut" readonly>
+            <div id="error-message" *ngIf="updateForm.get('rut')?.errors">{{ 'Rut invalido o vacio' }}</div>
           </div>
   
           <div class="form-group">
             <label for="name">Nombre:</label>
             <input formControlName="name" id="name" class="form-control" placeholder="Ingrese su nombre">
+            <div id="error-message" *ngIf="updateForm.get('name')?.errors">{{ 'Nombre invalido o vacio' }}</div>
           </div>
   
           <div class="form-group">
             <label for="lastName">Apellido:</label>
             <input formControlName="lastName" id="lastName" class="form-control" placeholder="Ingrese su apellido">
+            <div id="error-message" *ngIf="updateForm.get('lastName')?.errors">{{ 'Apellido invalido o vacio' }}</div>
           </div>
   
           <div class="form-group">
             <label for="email">Correo electrónico:</label>
             <input formControlName="email" id="email" type="email" class="form-control" placeholder="Ingrese su correo electrónico">
+            <div id="error-message" *ngIf="updateForm.get('email')?.errors">{{ 'Correo invalido o vacio' }}</div>
           </div>
   
           <div class="form-group">
             <label for="points">Puntos:</label>
             <input formControlName="points" id="points" class="form-control" placeholder="Ingrese su cantidad de puntos">
+            <div id="error-message" *ngIf="updateForm.get('points')?.errors">{{ 'Puntos invalido o vacio' }}</div>
           </div>
   
         <div class="text-center">
