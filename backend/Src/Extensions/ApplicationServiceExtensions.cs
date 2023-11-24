@@ -1,5 +1,8 @@
 using backend.Src.Data;
+using backend.Src.Services;
+using backend.Src.Interfaces;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace backend.Src.Extensions;
 
@@ -15,6 +18,9 @@ public static class ApplicationServiceExtensions
             });
 
             services.AddCors();
+            services.AddScoped<IAccountService, AccountService>();
+            
+
 
             return services;
         }
