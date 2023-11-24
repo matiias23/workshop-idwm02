@@ -35,7 +35,9 @@ try
 {
     var dataContext = services.GetRequiredService<DataContext>();
     await dataContext.Database.MigrateAsync();
+    dataContext.InitializeData();
     await Seeder.SeedUsers(dataContext);
+
 }
 catch (Exception ex)
 {
